@@ -1,58 +1,48 @@
 import React, { useState } from 'react';
-import '../../styles/index.css';
 
-// Usamos "function Home" para que coincida con lo que busca tu index/main
 function Home() {
-  const [tarea, setTarea] = useState('');
-  const [lista, setLista] = useState([]);
+    const [nuevaTarea, setNuevaTarea] = useState("");
+    const [lista, setLista] = useState(["Hacer la compra", "Estudiar React"]);
 
-  const agregarTarea = (e) => {
-    e.preventDefault();
-    if (tarea.trim() === '') return;
-   
-    // Agregamos el objeto a la lista
-    setLista([...lista, { id: Date.now(), texto: tarea }]);
-    setTarea('');
-  };
+    const manejarAñadir = () => {
+        if (nuevaTarea.trim() !== "") {
+            setLista([...lista, nuevaTarea]);
+            setNuevaTarea("");
+        }
+    };
 
-  const eliminarTarea = (id) => {
-    setLista(lista.filter(item => item.id !== id));
-  };
+    const eliminarTarea = (indice) => {
+        setLista(lista.filter((_, i) => i !== indice));
+    };
 
-  // Importante: Todo el HTML debe estar dentro del return
-  return (
-    <div className="todo-container">
-      <h2>TodoList</h2>
-     
-      <form onSubmit={agregarTarea} className="input-group">
-        <input
-          type="text"
-          value={tarea}
-          onChange={(e) => setTarea(e.target.value)}
-          placeholder=""
-        />
-        <button type="submit" className="add-btn">Añadir</button>
-      </form>
+    return (
+        <div className="container">
+            <h1>Todo List</h1>
+            <div className="input-group mb-3">
+                <input
+                    type="text"
+                    className='form-control'
+                    placeholder="Escribe una tarea..."
+                    value={nuevaTarea}
+                    onChange={(e) => setNuevaTarea(e.target.value)}
+                />
+                <button className="btn-btn-primary"
+                onClick={manejarAñadir}
+            >Añadir</button>
+            </div>
 
-      <ul>
-        {lista.map((item) => (
-          <li key={item.id} className="todo-item">
-            <span>{item.texto}</span>
-            <button
-              onClick={() => eliminarTarea(item.id)}
-              className="delete-btn"
-            >
-              &times;
-            </button>
-          </li>
-        ))}
-      </ul>
-     
-      {lista.length === 0 && (
-        <p style={{ textAlign: 'center', color: '#888' }}></p>
-      )}
-    </div>
-  );
+            <ul className="list-group">
+                {lista.map((tarea, indice) => (
+                    <li key={indice} className="tarea-item d-flex justify-content-between">
+                        {tarea}
+                        <button className="btn-eliminar" onClick={() => eliminarTarea(indice)}>
+                            X
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
 
-export default Home;
+export default Home; 

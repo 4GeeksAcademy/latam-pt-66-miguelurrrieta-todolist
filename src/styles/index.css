@@ -1,77 +1,51 @@
-*/ App.css */
-.todo-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+.container {
+    max-width: 500px;
+    margin-top: 50px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 0; 
 }
 
-h2 {
-  color: #333;
-  text-align: center;
+h1 {
+    text-align: center;
+    color: #ebdbdb;
+    font-size: 4rem;
+    font-weight: 200;
 }
 
-.input-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+input {
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    width: 100%;
+    padding: 15px;
+    outline: none;
+}
+.tarea-item {
+    display:flex; justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
-input[type="text"] {
-  flex-grow: 1;
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  outline: none;
+
+.btn-eliminar {
+    display: none;
+    color: #ff5e5e;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-input[type="text"]:focus {
-  border-color: #646cff;
+.btn-eliminar:hover {
+    color: red;
 }
 
-button.add-btn {
-  padding: 10px 20px;
-  background-color: #646cff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+.tarea-item:hover .btn-eliminar {
+    display: block;
 }
 
-button.add-btn:hover {
-  background-color: #535bf2;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-.todo-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: white;
-  margin-bottom: 8px;
-  border-radius: 6px;
-  border-left: 4px solid #646cff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.delete-btn {
-  background: none;
-  border: none;
-  color: #ff4d4d;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1.1rem;
-}
-
-.delete-btn:hover {
-  color: #cc0000;
-}
+ 
