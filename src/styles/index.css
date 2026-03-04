@@ -31,13 +31,13 @@ input {
 
 
 .btn-eliminar {
-    display: none;
+    opacity: 0;
     color: #ff5e5e;
     background: transparent;
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-eliminar:hover {
@@ -45,7 +45,7 @@ input {
 }
 
 .tarea-item:hover .btn-eliminar {
-    display: block;
+    opacity: 1;
 }
 
  

@@ -49,10 +49,10 @@ const Home = () => {
                     </li>
                 ) : (
                     lista.map((tarea, indice) => (
-                        <li key={indice} className="list-group-item d-flex justify-content-between align-items-center">
+                        <li key={indice} className="list-group-item d-flex justify-content-between align-items-center tarea-item">
                             {tarea}
                             <button
-                                className="btn btn-outline-danger btn-sm border-0"
+                                className="btn btn-outline-danger btn-sm border-0 btn-eliminar"
                                 onClick={() => eliminarTarea(indice)}
                             >
                                 x
